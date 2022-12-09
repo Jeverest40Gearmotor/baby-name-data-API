@@ -1,10 +1,4 @@
 const router = require('express').Router();
-const episodes = require('./routes/episodes');
-const episodeIndex = require('./routes/episodeIndex');
-const episodeLookup = require('./routes/episodeLookup');
-const airedBetween = require('./routes/airedBetween');
-const promoImage = require('./routes/promoImage');
-const episodeSeason = require('./routes/episodeSeason');
 const { byName, byYear } = require('us-baby-names');
 
 // Transform the data object elements into an
@@ -40,13 +34,6 @@ const formatToHTML = function(dataArr) {
       newName.substr(1)
     return newName
   }
-  
-router.get("/episodes", episodes);
-router.get("/episode-index/:index", episodeIndex);
-router.get("/episode-lookup/:code", episodeLookup);
-router.get("/aired-between/:date1/:date2", airedBetween);
-router.get("/promo-image/:code", promoImage);
-router.get("/episode-season/:season", episodeSeason)
 
 // Path 1: /baby-name/<name>
 router.get('/baby-name/:name', function(req, res) {
